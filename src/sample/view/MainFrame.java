@@ -1,9 +1,9 @@
 package sample.view;
 
-public class GameScreen implements View {
+public class MainFrame implements View {
     @Override
     public void showWinner(int who) {
-        
+
     }
 
     @Override
