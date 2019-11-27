@@ -4,6 +4,7 @@ public interface Controller {
     void checkMove();
     void switchPlayer();
     void restart();
+    void startGame();
 
 
 
