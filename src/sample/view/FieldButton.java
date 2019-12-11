@@ -2,11 +2,11 @@ package sample.view;
 
 import javafx.scene.control.Button;
 
-class FieldButton extends Button {
+public class FieldButton extends Button {
     private boolean isClickable = true;
     private int x, y;
 
-    FieldButton(int pX, int pY) {
+    public FieldButton(int pX, int pY) {
         super();
         this.x = pX;
         this.y = pY;

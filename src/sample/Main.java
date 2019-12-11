@@ -1,21 +1,20 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import sample.controller.Controller;
-import sample.view.MainFrame;
+import sample.view.frames.GameFrame;
+import sample.view.frames.MenuFrame;
 
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = new MainFrame(3);
+        Parent gameView = new GameFrame(5);
+        Parent menuView = new MenuFrame();
 
         primaryStage.setTitle("Ticke di tacke di toe");
-        primaryStage.setScene(new Scene(root, 500, 500));
+        primaryStage.setScene(new Scene(gameView, 500, 500));
         primaryStage.setResizable(false);
         primaryStage.show();
     }

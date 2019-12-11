@@ -1,6 +1,6 @@
 package sample.view;
 
-interface View {
+public interface View {
     void showWinner(int who);
     void showScoreBoard(String board);
     void put(int pl, int typ);

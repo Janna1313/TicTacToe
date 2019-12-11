@@ -1,16 +1,16 @@
 package sample.controller;
 
 import sample.model.Model;
-import sample.view.*;
+import sample.view.frames.GameFrame;
 
 public class GameController implements Controller {
     private int active_player = 1;
     private Model model;
-    private MainFrame view;
+    private GameFrame view;
 
-    public GameController(Model model, MainFrame mainFrame) {
+    public GameController(Model model, GameFrame gameFrame) {
         this.model = model;
-        this.view = mainFrame;
+        this.view = gameFrame;
     }
 
 
