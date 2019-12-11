@@ -1,10 +1,10 @@
 package sample.controller;
 
 public interface Controller {
-    void checkMove();
+    int checkMove(int x, int y);
     void switchPlayer();
     void restart();
-    void startGame();
+    void startGame(int size);
 
 
 

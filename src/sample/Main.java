@@ -4,8 +4,8 @@ import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import sample.view.frames.GameFrame;
-import sample.view.frames.MenuFrame;
+import sample.controller.Controller;
+import sample.controller.GameController;
 
 public class Main extends Application {
     @Override
