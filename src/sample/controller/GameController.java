@@ -8,6 +8,11 @@ public class GameController implements Controller {
     private Model model;
     private MainFrame view;
 
+    public GameController(Model model, MainFrame mainFrame) {
+        this.model = model;
+        this.view = mainFrame;
+    }
+
 
     @Override
     public void checkMove() {
