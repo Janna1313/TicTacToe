@@ -3,8 +3,14 @@ package sample.model;
 import java.util.ArrayList;
 
 public class Model {
+
     int size;
     int[][] grid;
+
+    Model(int size){
+        this.size = size;
+        generateField(size);
+    }
 
     public boolean makeTurn(int x, int y, int player) {
         setField(x, y, player);
@@ -25,7 +31,7 @@ public class Model {
         grid[x][y] = player;
     }
 
-    public void generateField(int size) {
+    private void generateField(int size) {
         grid = new int[size][size];
         for (int x = 0; x < size; x++){
             for(int y = 0; y < size; y++){
