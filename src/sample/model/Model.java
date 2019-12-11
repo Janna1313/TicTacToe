@@ -1,10 +1,11 @@
 package sample.model;
 
+import java.io.*;
 import java.util.ArrayList;
 
 public class Model {
 
-    int size;
+    final int size;
     int[][] grid;
 
     Model(int size){
@@ -14,10 +15,10 @@ public class Model {
 
     public boolean makeTurn(int x, int y, int player) {
         setField(x, y, player);
-        return ready(x,y,player);
+        return ready(player);
     }
 
-    private boolean ready(int x, int y, int player){
+    private boolean ready(int player){
         if (checkRows(player)){
             return true;
         }
@@ -38,6 +39,11 @@ public class Model {
                 grid[x][y] = 0;
             }
         }
+    }
+
+    public void restart(){
+        grid = null;
+        generateField(size);
     }
 
     private boolean checkRows(int player){
@@ -91,7 +97,54 @@ public class Model {
         return true;
     };
 
-    public String getScorelist(){
-        return "";
+    public static ArrayList<String> getScoreBord(){
+        ArrayList<String> scoreBord = new ArrayList<String>();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("ScoreBord.txt"));
+            String line;
+            while ((line = br.readLine()) != null) {
+                scoreBord.add(line);
+            }
+            br.close();
+        }catch (IOException cannotRead) {
+            System.out.println("A problem while loading the scorebord occurred.");
+        }
+        return scoreBord;
     };
+
+    public void saveWin(String name){
+        ArrayList<String> scoreBord = getScoreBord();
+        Boolean found = false;
+        if (scoreBord != null){
+            for(String entry : scoreBord){
+                String[] parts = entry.split(" ");
+                if(parts[1].equals(name)){
+                    int score = Integer.parseInt(parts[0]) + 1;
+                    scoreBord.set(scoreBord.indexOf(entry),score + " " + name);
+                    found = true;
+                }
+            }
+        }
+        if(!found){
+            scoreBord.add(1 + " " + name);
+        }
+
+        ArrayList<Entry> entrys = new ArrayList<Entry>();
+        for(String entry : scoreBord){
+            String[] parts = entry.split(" ");
+            entrys.add(new Entry(parts[1], Integer.parseInt(parts[0])));
+        }
+
+        String save = "";
+        for(String entry : scoreBord){
+            save += entry + System.lineSeparator();
+        }
+        try {
+            FileWriter writer = new FileWriter("ScoreBord.txt");
+            writer.write(save);
+            writer.close();
+        }catch (IOException cannotRead) {
+            System.out.println("A problem while saving the scorebord occurred.");
+        }
+    }
 }
