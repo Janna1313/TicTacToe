@@ -135,6 +135,8 @@ public class Model {
             entrys.add(new Entry(parts[1], Integer.parseInt(parts[0])));
         }
 
+        entrys = sortEntrys(entrys);
+
         String save = "";
         for(String entry : scoreBord){
             save += entry + System.lineSeparator();
@@ -146,5 +148,20 @@ public class Model {
         }catch (IOException cannotRead) {
             System.out.println("A problem while saving the scorebord occurred.");
         }
+    }
+
+    private ArrayList<Entry> sortEntrys(ArrayList<Entry> entrys)
+    {
+        int n = entrys.size();
+        for (int i = 0; i < n-1; i++)
+            for (int j = 0; j < n-i-1; j++)
+                if (entrys.get(j).getCount() > entrys.get(j+1).getCount() )
+                {
+                    // swap temp and arr[i]
+                    int temp = entrys.get(j).getCount();
+                    entrys.get(j).setCount(entrys.get(j+1).getCount());
+                    entrys.get(j+1).setCount(temp);
+                }
+        return entrys;
     }
 }
