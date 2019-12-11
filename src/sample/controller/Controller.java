@@ -1,4 +1,11 @@
 package sample.controller;
 
-public class Controller {
+public interface Controller {
+    void checkMove();
+    void switchPlayer();
+    void restart();
+    void startGame();
+
+
+
 }
