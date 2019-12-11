@@ -4,19 +4,25 @@ import sample.model.Model;
 import sample.view.*;
 
 public class GameController implements Controller {
-    private int active_player = 1;
+    private int active_player;
     private Model model;
     private MainFrame view;
 
     public GameController(Model model, MainFrame mainFrame) {
-        this.model = model;
         this.view = mainFrame;
+        active_player = 1;
     }
 
 
     @Override
-    public void checkMove() {
+    public int checkMove(int x, int y) {
 
+        if (model.makeTurn(x, y, active_player)) {
+
+            view.showWinner(active_player);
+        }
+        switchPlayer();
+        return active_player;
     }
 
     @Override
@@ -26,11 +32,23 @@ public class GameController implements Controller {
 
     @Override
     public void restart() {
-
+        // view.confirm
     }
 
     @Override
-    public void startGame() {
+    public void startGame(int size) {
+        model = new Model(size);
+    }
 
+    public int getActive_player() {
+        return active_player;
+    }
+
+    public MainFrame getView() {
+        return view;
+    }
+
+    public Model getModel() {
+        return model;
     }
 }

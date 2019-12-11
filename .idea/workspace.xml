@@ -25,10 +25,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="width" value="1304" />
+    <option name="height" value="1755" />
+  </component>
   <component name="ProjectId" id="1UBtnPxbdEIncZjP98P0GdGyaUW" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -72,11 +78,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574841982973</updated>
-      <workItem from="1574841984644" duration="7104000" />
-      <workItem from="1575025470040" duration="44000" />
-      <workItem from="1576048415847" duration="5301000" />
+      <workItem from="1574841984644" duration="2373000" />
     </task>
     <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="7634000" />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -89,6 +96,20 @@
             <State>
               <option name="COLUMN_ORDER" />
             </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
           </value>
         </entry>
       </map>

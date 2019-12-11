@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import sample.controller.Controller;
-import sample.view.MainFrame;
+import sample.controller.GameController;
 
 public class Main extends Application {
     @Override
