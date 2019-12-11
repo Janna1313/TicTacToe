@@ -7,7 +7,7 @@ public class Model {
     int size;
     int[][] grid;
 
-    Model(int size){
+    public Model(int size){
         this.size = size;
         generateField(size);
     }
