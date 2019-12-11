@@ -13,17 +13,17 @@ public class Model {
         generateField(size);
     }
 
-    public boolean makeTurn(int x, int y, int player) {
+    public Boolean makeTurn(int x, int y, int player) {
         setField(x, y, player);
         return ready(player);
     }
 
-    private boolean ready(int player){
+    private Boolean ready(int player){
         if (checkRows(player)){
             return true;
         }
         if (checkDraw()){
-            return true;
+            return null;
         }
         return false;
     };
