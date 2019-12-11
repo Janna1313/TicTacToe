@@ -3,7 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="dd6ac75d-9f5d-4ed6-ad35-660743d65ce2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TicTacToe/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TicTacToe/sample/sample.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/view/FieldButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/FieldButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/view/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/View.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +31,6 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -70,7 +74,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574841982973</updated>
-      <workItem from="1574841984644" duration="2373000" />
+      <workItem from="1574841984644" duration="7104000" />
+      <workItem from="1575025470040" duration="44000" />
+      <workItem from="1576048415847" duration="4643000" />
     </task>
     <servers />
   </component>
