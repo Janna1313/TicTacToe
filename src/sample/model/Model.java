@@ -22,7 +22,7 @@ public class Model {
     };
 
     private void setField(int x, int y, int player) {
-
+        grid[x][y] = player;
     }
 
     public void generateField(int size) {
@@ -53,12 +53,12 @@ public class Model {
     };
 
     private boolean checkRow(int x, int y, int mode, int player){
-        boolean corectPlayer = true;
-        while (corectPlayer) {
-            if (mode == 0) {corectPlayer = checkField(x, y, player);}
-            if (mode == 1) {corectPlayer = checkField(y, x, player);}
-            if (mode == 2) {corectPlayer = checkField(y, y, player);}
-            if (mode == 3) {corectPlayer = checkField(y, size-y, player);}
+        boolean correctPlayer = true;
+        while (correctPlayer) {
+            if (mode == 0) {correctPlayer = checkField(x, y, player);}
+            if (mode == 1) {correctPlayer = checkField(y, x, player);}
+            if (mode == 2) {correctPlayer = checkField(y, y, player);}
+            if (mode == 3) {correctPlayer = checkField(y, size-y, player);}
             y++;
             if (y == size) {
             return true;
@@ -75,6 +75,13 @@ public class Model {
     };
 
     private boolean checkDraw(){
-        return false;
+        for (int x = 0; x < size; x++){
+            for(int y = 0; y < size; y++){
+                if (grid[x][y] == 0){
+                    return false;
+                }
+            }
+        }
+        return true;
     };
 }
