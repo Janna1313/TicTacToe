@@ -157,7 +157,6 @@ public class Model {
             for (int j = 0; j < n-i-1; j++)
                 if (entrys.get(j).getCount() > entrys.get(j+1).getCount() )
                 {
-                    // swap temp and arr[i]
                     int temp = entrys.get(j).getCount();
                     entrys.get(j).setCount(entrys.get(j+1).getCount());
                     entrys.get(j+1).setCount(temp);
