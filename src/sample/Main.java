@@ -10,7 +10,6 @@ import sample.controller.Controller;
 import sample.view.MainFrame;
 
 public class Main extends Application {
-    public static Controller controller = new Controller();
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = new MainFrame(3);

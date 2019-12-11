@@ -10,7 +10,7 @@ class FieldButton extends Button {
         super();
         this.x = pX;
         this.y = pY;
-        int size = 512/3;
+        int size = 512 / 3;
 
         setMinHeight(size);
         setMaxHeight(size);
@@ -20,11 +20,17 @@ class FieldButton extends Button {
 
         setStyle("-fx-background-color: #ffffff; -fx-border-color: #000000;-fx-border-width: 10");
 
-        setOnAction(event -> System.out.println("click"));
+
+        setOnAction(event -> {
+            if (this.isClickable) {
+                System.out.println("CHANGE ME >->");
+                toggleClickable();
+            }
+        });
     }
 
-    public int[] getPosition(){
-        return new int[] {this.x, this.y};
+    public int[] getPosition() {
+        return new int[]{this.x, this.y};
     }
 
     public boolean getIsClickable() {
