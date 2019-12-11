@@ -8,7 +8,7 @@ public class GameController implements Controller {
     private Model model;
     private MainFrame view;
 
-    public GameController(Model model, MainFrame mainFrame) {
+    public GameController(MainFrame mainFrame) {
         this.view = mainFrame;
         active_player = 1;
     }
@@ -16,9 +16,7 @@ public class GameController implements Controller {
 
     @Override
     public int checkMove(int x, int y) {
-
         if (model.makeTurn(x, y, active_player)) {
-
             view.showWinner(active_player);
         }
         switchPlayer();
@@ -32,12 +30,23 @@ public class GameController implements Controller {
 
     @Override
     public void restart() {
-        // view.confirm
+        /*
+        if (view.confirm()) {
+            //model.restart();
+        }
+        */
+
     }
 
     @Override
     public void startGame(int size) {
         model = new Model(size);
+    }
+
+    @Override
+    public void showScoreboard() {
+        //String [] scoreboard = model.getScorelist();
+
     }
 
     public int getActive_player() {
@@ -51,4 +60,5 @@ public class GameController implements Controller {
     public Model getModel() {
         return model;
     }
+
 }

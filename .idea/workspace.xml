@@ -4,7 +4,6 @@
     <list default="true" id="dd6ac75d-9f5d-4ed6-ad35-660743d65ce2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/model/Model.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,11 +60,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="width" value="1304" />
-    <option name="height" value="1755" />
   </component>
   <component name="ProjectId" id="1UBtnPxbdEIncZjP98P0GdGyaUW" />
   <component name="ProjectView">
@@ -125,6 +119,10 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576055293699" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
