@@ -37,7 +37,7 @@ public class GameController implements Controller {
 
     @Override
     public void startGame(int size) {
-        model = new Model();
+        model = new Model(size);
     }
 
     public int getActive_player() {
