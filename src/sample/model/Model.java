@@ -90,4 +90,8 @@ public class Model {
         }
         return true;
     };
+
+    public String getScorelist(){
+        return "";
+    };
 }
