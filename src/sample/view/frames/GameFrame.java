@@ -9,7 +9,7 @@ public class GameFrame extends GridPane implements View {
     public GameFrame(int fieldSize){
         for (int x = 0; x < fieldSize; x++) {
             for (int y = 0; y < fieldSize; y++)
-                add(new FieldButton(x, y), x, y);
+                add(new FieldButton(x, y, fieldSize), x, y);
         }
     }
 
@@ -19,6 +19,13 @@ public class GameFrame extends GridPane implements View {
         winner.setContentText("Player " + who + " has won!");
         winner.show();
 
+    }
+
+    @Override
+    public void showTie() {
+        Dialog tie = new Dialog();
+        tie.setContentText("No one won!");
+        tie.show();
     }
 
     @Override

@@ -6,11 +6,11 @@ public class FieldButton extends Button {
     private boolean isClickable = true;
     private int x, y;
 
-    public FieldButton(int pX, int pY) {
+    public FieldButton(int pX, int pY, int fieldSize) {
         super();
         this.x = pX;
         this.y = pY;
-        int size = 512 / 3;
+        int size = 512 / fieldSize;
 
         setMinHeight(size);
         setMaxHeight(size);
@@ -23,7 +23,7 @@ public class FieldButton extends Button {
 
         setOnAction(event -> {
             if (this.isClickable) {
-                System.out.println("CHANGE ME >->");
+                setText(getPlayer());
                 toggleClickable();
             }
         });
@@ -39,5 +39,15 @@ public class FieldButton extends Button {
 
     public void toggleClickable() {
         this.isClickable = !this.isClickable;
+    }
+
+    public String getPlayer() {
+        int player = 0;
+        String stringPlayer = "";
+
+        if (player == 1) stringPlayer = "X";
+        else if (player == 2) stringPlayer = "O";
+
+        return stringPlayer;
     }
 }

@@ -8,7 +8,7 @@ public class GameController implements Controller {
     private Model model;
     private GameFrame view;
 
-    public GameController(Model model, MainFrame mainFrame) {
+    public GameController(Model model, GameFrame mainFrame) {
         this.view = mainFrame;
         active_player = 1;
     }
@@ -44,7 +44,7 @@ public class GameController implements Controller {
         return active_player;
     }
 
-    public MainFrame getView() {
+    public GameFrame getView() {
         return view;
     }
 
