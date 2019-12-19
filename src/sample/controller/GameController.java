@@ -3,12 +3,14 @@ package sample.controller;
 import sample.model.Model;
 import sample.view.*;
 
+import java.util.ArrayList;
+
 public class GameController implements Controller {
     private int active_player;
     private Model model;
     private MainFrame view;
 
-    public GameController(Model model, MainFrame mainFrame) {
+    public GameController(MainFrame mainFrame) {
         this.view = mainFrame;
         active_player = 1;
     }
@@ -16,10 +18,11 @@ public class GameController implements Controller {
 
     @Override
     public int checkMove(int x, int y) {
-
-        if (model.makeTurn(x, y, active_player)) {
-
+        Boolean win = model.makeTurn(x, y, active_player);
+        if (win) {
             view.showWinner(active_player);
+        } else if (win = null) {
+            //view.showTie();
         }
         switchPlayer();
         return active_player;
@@ -32,12 +35,19 @@ public class GameController implements Controller {
 
     @Override
     public void restart() {
-        // view.confirm
+        model.restart();
+        active_player = 1;
     }
 
     @Override
     public void startGame(int size) {
         model = new Model(size);
+    }
+
+    @Override
+    public void showScoreboard() {
+        ArrayList<String> scoreboard = Model.getScoreBord();
+        //view.showScoreboard(scoreboard);
     }
 
     public int getActive_player() {
@@ -51,4 +61,5 @@ public class GameController implements Controller {
     public Model getModel() {
         return model;
     }
+
 }
