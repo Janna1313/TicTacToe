@@ -5,7 +5,6 @@ public interface Controller {
     void switchPlayer();
     void restart();
     void startGame(int size);
-
-
+    void showScoreboard();
 
 }
