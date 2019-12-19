@@ -13,7 +13,7 @@ public class Model {
         generateField(size);
     }
 
-    public boolean makeTurn(int x, int y, int player) {
+    public Boolean makeTurn(int x, int y, int player) {
         setField(x, y, player);
         return ready(player);
     }
