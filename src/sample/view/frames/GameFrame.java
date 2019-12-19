@@ -14,13 +14,13 @@ import sample.view.View;
 import java.util.ArrayList;
 
 public class GameFrame extends BorderPane implements View {
-    private GameController controller = new GameController(this);
+    private GameController controller;
 
-    private class ButtonGrid extends GridPane {
-        ButtonGrid(int fieldSize) {
+    private static class ButtonGrid extends GridPane {
+        ButtonGrid(int fieldSize, GameController controller) {
             for (int x = 0; x < fieldSize; x++) {
                 for (int y = 0; y < fieldSize; y++)
-                    add(new FieldButton(x, y, fieldSize, controller), x, y);
+                    add(new FieldButton(x, y, controller), x, y);
             }
         }
 
@@ -37,13 +37,13 @@ public class GameFrame extends BorderPane implements View {
         Button menu = new Button("Main Menu");
 
         menu.setOnAction(event -> {
-            Main.primaryStage.setScene(new Scene(new MenuFrame(), 500, 500));
+            Main.primaryStage.setScene(new Scene(new MenuFrame(), this.getWidth(), getHeight()));
         });
 
         Button restart = new Button("Restart");
 
         restart.setOnAction(event -> {
-            Main.primaryStage.setScene(new Scene(new GameFrame(fieldSize), 500, 500));
+            Main.primaryStage.setScene(new Scene(new GameFrame(fieldSize), this.getWidth(), this.getHeight()));
         });
 
         Button endGame = new Button("End Game");
@@ -55,7 +55,7 @@ public class GameFrame extends BorderPane implements View {
         buttonBar.getButtons().addAll(scoreBoardButton, menu, restart, endGame);
 
         setTop(buttonBar);
-        setCenter(new ButtonGrid(fieldSize));
+        setCenter(new ButtonGrid(fieldSize, this.controller));
 
     }
 
@@ -88,5 +88,9 @@ public class GameFrame extends BorderPane implements View {
 
         scoreBoard.setContentText(tBoard);
         scoreBoard.show();
+    }
+
+    public void setController(GameController controller) {
+        this.controller = controller;
     }
 }

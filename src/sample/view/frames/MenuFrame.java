@@ -8,12 +8,11 @@ import sample.controller.GameController;
 import sample.model.Model;
 
 public class MenuFrame extends VBox {
-    private GameController gameController = new GameController(new GameFrame(3));
+    private GameController gameController;
+    private Slider size;
 
     public MenuFrame() {
-
-
-        Slider size = new Slider(3, 13, 3);
+        size = new Slider(3, 13, 3);
         size.setMajorTickUnit(2);
         size.setMinorTickCount(0);
         size.setBlockIncrement(2);
@@ -28,10 +27,14 @@ public class MenuFrame extends VBox {
         scoreBoard.setText("Show Scoreboard");
 
         startButton.setOnAction(event -> {
+            GameFrame gameFrame = new GameFrame((int)size.getValue());
+            gameController = new GameController(gameFrame);
+            gameFrame.setController(this.gameController);
             gameController.startGame((int)size.getValue());
-            Main.primaryStage.setScene(new Scene(new GameFrame((int)size.getValue()), 500, 500));
+            Main.primaryStage.setScene(new Scene(gameFrame, size.getValue()*Main.SIZE_MULTIPLIER, size.getValue()*Main.SIZE_MULTIPLIER));
 
         });
+
         scoreBoard.setOnAction(event -> gameController.showScoreboard());
 
         getChildren().addAll(size, startButton, scoreBoard);

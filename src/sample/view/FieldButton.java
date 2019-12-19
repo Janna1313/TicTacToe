@@ -8,12 +8,12 @@ public class FieldButton extends Button {
     private int x, y;
     private GameController controller;
 
-    public FieldButton(int pX, int pY, int fieldSize, GameController pController) {
+    public FieldButton(int pX, int pY, GameController pController) {
         super();
         this.x = pX;
         this.y = pY;
-        this.controller = pController;
-        int size = 512 / fieldSize;
+        controller = pController;
+        int size = 50;
 
         setMinHeight(size);
         setMaxHeight(size);
@@ -27,7 +27,7 @@ public class FieldButton extends Button {
         setOnAction(event -> {
             if (getIsClickable()) {
                 setText(getPlayer());
-                controller.checkMove(this.x, this.y);
+                this.controller.checkMove(this.x, this.y);
                 toggleClickable();
             }
         });
@@ -46,7 +46,7 @@ public class FieldButton extends Button {
     }
 
     private String getPlayer() {
-        int player = controller.getActive_player();
+        int player = this.controller.getActive_player();
         String stringPlayer;
 
         if (player == 1) stringPlayer = "X"; // Player 1
