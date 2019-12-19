@@ -1,11 +1,9 @@
 package sample.view;
 
+import java.util.ArrayList;
+
 public interface View {
     void showWinner(int who);
     void showTie();
-    void showScoreBoard(String board);
-    void put(int pl, int typ);
-    void illegalMove(int pl);
-    void init();
-
+    void showScoreBoard(ArrayList<String> board);
 }

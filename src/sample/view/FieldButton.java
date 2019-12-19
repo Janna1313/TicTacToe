@@ -1,15 +1,18 @@
 package sample.view;
 
 import javafx.scene.control.Button;
+import sample.controller.GameController;
 
 public class FieldButton extends Button {
     private boolean isClickable = true;
     private int x, y;
+    private GameController controller;
 
-    public FieldButton(int pX, int pY, int fieldSize) {
+    public FieldButton(int pX, int pY, int fieldSize, GameController pController) {
         super();
         this.x = pX;
         this.y = pY;
+        this.controller = pController;
         int size = 512 / fieldSize;
 
         setMinHeight(size);
@@ -22,8 +25,9 @@ public class FieldButton extends Button {
 
 
         setOnAction(event -> {
-            if (this.isClickable) {
+            if (getIsClickable()) {
                 setText(getPlayer());
+                controller.checkMove(this.x, this.y);
                 toggleClickable();
             }
         });
@@ -37,16 +41,17 @@ public class FieldButton extends Button {
         return this.isClickable;
     }
 
-    public void toggleClickable() {
+    private void toggleClickable() {
         this.isClickable = !this.isClickable;
     }
 
-    public String getPlayer() {
-        int player = 0;
-        String stringPlayer = "";
+    private String getPlayer() {
+        int player = controller.getActive_player();
+        String stringPlayer;
 
-        if (player == 1) stringPlayer = "X";
-        else if (player == 2) stringPlayer = "O";
+        if (player == 1) stringPlayer = "X"; // Player 1
+        else if (player == 2) stringPlayer = "O"; // Player 2
+        else stringPlayer = "E"; // ERROR
 
         return stringPlayer;
     }

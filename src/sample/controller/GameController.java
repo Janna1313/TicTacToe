@@ -10,7 +10,7 @@ public class GameController implements Controller {
     private Model model;
     private GameFrame view;
 
-    public GameController(MainFrame mainFrame) {
+    public GameController(GameFrame mainFrame) {
         this.view = mainFrame;
         active_player = 1;
     }
@@ -22,7 +22,7 @@ public class GameController implements Controller {
         if (win) {
             view.showWinner(active_player);
         } else if (win = null) {
-            //view.showTie();
+            view.showTie();
         }
         switchPlayer();
         return active_player;
@@ -30,7 +30,7 @@ public class GameController implements Controller {
 
     @Override
     public void switchPlayer() {
-        active_player = active_player % 2 + 1;
+        this.active_player = this.active_player % 2 + 1;
     }
 
     @Override
@@ -47,7 +47,7 @@ public class GameController implements Controller {
     @Override
     public void showScoreboard() {
         ArrayList<String> scoreboard = Model.getScoreBord();
-        //view.showScoreboard(scoreboard);
+        view.showScoreBoard(scoreboard);
     }
 
     public int getActive_player() {
