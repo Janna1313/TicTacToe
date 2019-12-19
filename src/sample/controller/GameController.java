@@ -23,13 +23,17 @@ public class GameController implements Controller {
     @Override
     public int checkMove(int x, int y) {
         Boolean win = model.makeTurn(x, y, active_player);
-        if (win) {
-            view.showWinner(active_player);
-        } else if (win = null) {
+        if (win == null) {
             view.showTie();
+        } else if (win) {
+            view.showWinner(active_player);
         }
         switchPlayer();
         return active_player;
+    }
+
+    public void saveWin(String name){
+        model.saveWin(name);
     }
 
     @Override
