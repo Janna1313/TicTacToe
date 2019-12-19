@@ -5,10 +5,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import sample.Main;
 import sample.controller.GameController;
-import sample.model.Model;
 
 public class MenuFrame extends VBox {
-    private GameController gameController;
     private Slider size;
 
     public MenuFrame() {
@@ -26,10 +24,11 @@ public class MenuFrame extends VBox {
         Button scoreBoard = new Button();
         scoreBoard.setText("Show Scoreboard");
 
+        GameFrame gameFrame = new GameFrame((int)size.getValue());
+        GameController gameController = new GameController(gameFrame);
+        gameFrame.setController(gameController);
+
         startButton.setOnAction(event -> {
-            GameFrame gameFrame = new GameFrame((int)size.getValue());
-            gameController = new GameController(gameFrame);
-            gameFrame.setController(this.gameController);
             gameController.startGame((int)size.getValue());
             Main.primaryStage.setScene(new Scene(gameFrame, size.getValue()*Main.SIZE_MULTIPLIER, size.getValue()*Main.SIZE_MULTIPLIER));
 
