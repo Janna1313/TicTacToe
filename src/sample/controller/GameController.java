@@ -15,6 +15,9 @@ public class GameController implements Controller {
         active_player = 1;
     }
 
+    public GameController(){
+    }
+
 
     @Override
     public int checkMove(int x, int y) {
@@ -62,4 +65,11 @@ public class GameController implements Controller {
         return model;
     }
 
+    public void setView(GameFrame view) {
+        this.view = view;
+    }
+
+    public void setActive_player(int player) {
+        this.active_player = player;
+    }
 }

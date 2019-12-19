@@ -26,35 +26,18 @@ public class GameFrame extends BorderPane implements View {
 
     }
 
-    public GameFrame(int fieldSize){
-        ButtonBar buttonBar = new ButtonBar();
+    public GameFrame(int fieldSize, GameController pController){
+        controller = pController;
+        controller.setView(this);
+        controller.setActive_player(1);
+        init(fieldSize);
 
-        Button scoreBoardButton = new Button("Scoreboard");
-        scoreBoardButton.setOnAction(event -> {
-            controller.showScoreboard();
-        });
+        setCenter(new ButtonGrid(fieldSize, this.controller));
 
-        Button menu = new Button("Main Menu");
+    }
 
-        menu.setOnAction(event -> {
-            Main.primaryStage.setScene(new Scene(new MenuFrame(), this.getWidth(), getHeight()));
-        });
-
-        Button restart = new Button("Restart");
-
-        restart.setOnAction(event -> {
-            Main.primaryStage.setScene(new Scene(new GameFrame(fieldSize), this.getWidth(), this.getHeight()));
-        });
-
-        Button endGame = new Button("End Game");
-
-        endGame.setOnAction(event -> {
-            System.exit(0);
-        });
-
-        buttonBar.getButtons().addAll(scoreBoardButton, menu, restart, endGame);
-
-        setTop(buttonBar);
+    public GameFrame(int fieldSize) {
+        init(fieldSize);
         setCenter(new ButtonGrid(fieldSize, this.controller));
 
     }
@@ -88,6 +71,38 @@ public class GameFrame extends BorderPane implements View {
 
         scoreBoard.setContentText(tBoard);
         scoreBoard.show();
+    }
+
+    @Override
+    public void init(int fieldSize) {
+        ButtonBar buttonBar = new ButtonBar();
+
+        Button scoreBoardButton = new Button("Scoreboard");
+        scoreBoardButton.setOnAction(event -> {
+            controller.showScoreboard();
+        });
+
+        Button menu = new Button("Main Menu");
+
+        menu.setOnAction(event -> {
+            Main.primaryStage.setScene(new Scene(new MenuFrame(controller), this.getWidth(), getHeight()));
+        });
+
+        Button restart = new Button("Restart");
+
+        restart.setOnAction(event -> {
+            Main.primaryStage.setScene(new Scene(new GameFrame(fieldSize), this.getWidth(), this.getHeight()));
+        });
+
+        Button endGame = new Button("End Game");
+
+        endGame.setOnAction(event -> {
+            System.exit(0);
+        });
+
+        buttonBar.getButtons().addAll(scoreBoardButton, menu, restart, endGame);
+
+        setTop(buttonBar);
     }
 
     public void setController(GameController controller) {
