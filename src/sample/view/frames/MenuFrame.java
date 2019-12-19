@@ -7,7 +7,7 @@ import sample.Main;
 import sample.controller.GameController;
 
 public class MenuFrame extends VBox {
-    private Slider size;
+    private Slider size; //todo bug bei 7 dreier feld erstellt.
     private GameController gameController;
 
     public MenuFrame(GameController pGameController) {

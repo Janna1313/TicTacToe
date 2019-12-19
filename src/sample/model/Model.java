@@ -18,12 +18,12 @@ public class Model {
         return ready(player);
     }
 
-    private boolean ready(int player){
+    private Boolean ready(int player){
         if (checkRows(player)){
             return true;
         }
         if (checkDraw()){
-            return true;
+            return null;
         }
         return false;
     };
@@ -70,8 +70,8 @@ public class Model {
             if (mode == 0) {correctPlayer = checkField(x, y, player);}
             if (mode == 1) {correctPlayer = checkField(y, x, player);}
             if (mode == 2) {correctPlayer = checkField(y, y, player);}
-            if (mode == 3) {correctPlayer = checkField(y, size-y, player);}
-            y++;
+            if (mode == 3) {correctPlayer = checkField(y, size-y-1, player);}
+            if (correctPlayer){y++;}
             if (y == size) {
             return true;
             }
