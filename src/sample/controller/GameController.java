@@ -11,15 +11,6 @@ public class GameController implements Controller {
     private Model model;
     private GameFrame view;
 
-    public GameController(GameFrame mainFrame) {
-        this.view = mainFrame;
-        active_player = 1;
-    }
-
-    public GameController(){
-    }
-
-
     @Override
     public int checkMove(int x, int y) {
         Boolean win = model.makeTurn(x, y, active_player);
