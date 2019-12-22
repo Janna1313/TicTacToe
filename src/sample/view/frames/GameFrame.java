@@ -11,6 +11,7 @@ import sample.view.FieldButton;
 import sample.view.View;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class GameFrame extends BorderPane implements View {
     private GameController controller;
@@ -19,17 +20,17 @@ public class GameFrame extends BorderPane implements View {
         ButtonGrid(double fieldSize, GameController controller) {
             setAlignment(Pos.CENTER);
 
-            double size = fieldSize/700;
+            double size = 700 / fieldSize;
 
             for (int x = 0; x < fieldSize; x++) {
                 for (int y = 0; y < fieldSize; y++) {
-                    add(new FieldButton(x, y, controller), x, y);
 
-                    setMinHeight(size);
-                    setMinWidth(size);
+                    setMinHeight((int) size);
+                    setMinWidth((int) size);
+
+                    add(new FieldButton(x, y, controller), x, y);
                 }
             }
-            setPrefSize(size, size);
         }
     }
 
@@ -45,19 +46,18 @@ public class GameFrame extends BorderPane implements View {
     @Override
     public String showWinner() {
         TextInputDialog player = new TextInputDialog();
+        Dialog winner = new Dialog();
+
         player.setContentText("What's your name?");
-        player.showAndWait();
+        
+        Optional<String> result = player.showAndWait();
 
-        player.getEditor().setOnAction(event -> {
-            Dialog winner = new Dialog();
+        if (result.isPresent() && result.get().length() > 0) {
             winner.setContentText("Player " + player.getEditor().getText() + " has won!");
-            winner.showAndWait();
+        }
 
-            winner.setOnCloseRequest(event1 -> {
-                winner.close();
-                player.close();
-            });
-        });
+        winner.getDialogPane().getButtonTypes().add(new ButtonType("Close", ButtonBar.ButtonData.OK_DONE));
+        winner.showAndWait();
 
         return player.getEditor().getText();
     }

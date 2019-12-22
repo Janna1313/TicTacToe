@@ -4,7 +4,6 @@
     <list default="true" id="a54103ac-9ae4-49fa-9397-eb3fb4bc5337" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ScoreBord.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ScoreBord.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/view/frames/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/frames/GameFrame.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,6 +19,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PP_Projekt_8_Calculator" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -63,7 +63,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1577020198934</updated>
-      <workItem from="1577020200490" duration="8871000" />
+      <workItem from="1577020200490" duration="11019000" />
     </task>
     <servers />
   </component>
