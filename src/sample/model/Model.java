@@ -147,9 +147,11 @@ public class Model {
 
         entrys = sortEntries(entrys);
 
+
+
         String save = "";
-        for (String entry : scoreBord) {
-            save += entry + System.lineSeparator();
+        for (Entry entry : entrys) {
+            save += entry.getCount() + " " + entry.getName() + System.lineSeparator();
         }
         try {
             FileWriter writer = new FileWriter("ScoreBord.txt");
@@ -164,7 +166,7 @@ public class Model {
         int n = entries.size();
         for (int i = 0; i < n - 1; i++)
             for (int j = 0; j < n - i - 1; j++)
-                if (entries.get(j).getCount() > entries.get(j + 1).getCount()) {
+                if (entries.get(j).getCount() < entries.get(j + 1).getCount()) {
                     // swap temp and arr[i]
                     int temp = entries.get(j).getCount();
                     entries.get(j).setCount(entries.get(j + 1).getCount());

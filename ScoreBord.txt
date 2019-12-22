@@ -1,2 +1,12 @@
+<<<<<<< Updated upstream
 9 Kevin
 2 kevin
+=======
+8 Kevin
+7 kevin
+2 obs
+2 schniiizel
+2 fickschnitzel
+2 obi
+1 g
+>>>>>>> Stashed changes

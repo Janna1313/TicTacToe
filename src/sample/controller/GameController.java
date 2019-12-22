@@ -30,6 +30,7 @@ public class GameController implements Controller {
 
     public void saveWin(String name){
         model.saveWin(name);
+        scoreboard = Model.getScoreBord();
     }
 
     @Override
