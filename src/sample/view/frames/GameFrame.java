@@ -1,10 +1,7 @@
 package sample.view.frames;
 
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import sample.Main;
@@ -19,9 +16,18 @@ public class GameFrame extends BorderPane implements View {
 
     private static class ButtonGrid extends GridPane {
         ButtonGrid(int fieldSize, GameController controller) {
+            int size = fieldSize / 700;
+
             for (int x = 0; x < fieldSize; x++) {
-                for (int y = 0; y < fieldSize; y++)
+                for (int y = 0; y < fieldSize; y++) {
                     add(new FieldButton(x, y, controller), x, y);
+
+                    setMinHeight(size-1);
+                    setMaxHeight(size+1);
+
+                    setMinWidth(size-1);
+                    setMaxWidth(size+1);
+                }
             }
         }
 
@@ -34,7 +40,6 @@ public class GameFrame extends BorderPane implements View {
         init(fieldSize);
 
         setCenter(new ButtonGrid(fieldSize, this.controller));
-
     }
 
     public GameFrame(int fieldSize) {
@@ -81,11 +86,8 @@ public class GameFrame extends BorderPane implements View {
         }
 
         scoreBoard.setContentText(tBoard);
+        scoreBoard.getDialogPane().getButtonTypes().add(new ButtonType("Close", ButtonBar.ButtonData.OK_DONE));
         scoreBoard.showAndWait();
-
-        scoreBoard.setOnCloseRequest(event -> {
-            scoreBoard.close();
-        });
     }
 
     @Override

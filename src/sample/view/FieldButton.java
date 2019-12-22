@@ -2,6 +2,7 @@ package sample.view;
 
 import javafx.scene.control.Button;
 import sample.controller.GameController;
+import sample.view.frames.MenuFrame;
 
 public class FieldButton extends Button {
     private boolean isClickable = true;
@@ -13,13 +14,6 @@ public class FieldButton extends Button {
         this.x = pX;
         this.y = pY;
         controller = pController;
-        int size = 50;
-
-        setMinHeight(size);
-        setMaxHeight(size);
-
-        setMinWidth(size);
-        setMinWidth(size);
 
         setStyle("-fx-background-color: #ffffff; -fx-border-color: #000000;-fx-border-width: 10");
 

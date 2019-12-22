@@ -10,7 +10,6 @@ import java.util.ArrayList;
 
 public class MenuFrame extends VBox {
     private Slider size;
-    private GameController gameController;
 
     public MenuFrame(GameController pGameController) {
         size = new Slider(3, 13, 3);
@@ -30,7 +29,7 @@ public class MenuFrame extends VBox {
         startButton.setOnAction(event -> {
             GameFrame gameFrame = new GameFrame((int)size.getValue(), pGameController);
             pGameController.startGame((int)size.getValue());
-            Main.primaryStage.setScene(new Scene(gameFrame, size.getValue()*Main.SIZE_MULTIPLIER, size.getValue()*Main.SIZE_MULTIPLIER));
+            Main.primaryStage.setScene(new Scene(gameFrame, 700, 700));
 
         });
 
@@ -47,8 +46,7 @@ public class MenuFrame extends VBox {
         }
 
         scoreBoard.setContentText(tBoard);
-        scoreBoard.setOnCloseRequest(event -> scoreBoard.close());
+        scoreBoard.getDialogPane().getButtonTypes().add(new ButtonType("Close", ButtonBar.ButtonData.OK_DONE));
         scoreBoard.showAndWait();
-        
     }
 }
