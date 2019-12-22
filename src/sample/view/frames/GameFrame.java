@@ -1,5 +1,6 @@
 package sample.view.frames;
 
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
@@ -15,22 +16,21 @@ public class GameFrame extends BorderPane implements View {
     private GameController controller;
 
     private static class ButtonGrid extends GridPane {
-        ButtonGrid(int fieldSize, GameController controller) {
-            int size = fieldSize / 700;
+        ButtonGrid(double fieldSize, GameController controller) {
+            setAlignment(Pos.CENTER);
+
+            double size = fieldSize/700;
 
             for (int x = 0; x < fieldSize; x++) {
                 for (int y = 0; y < fieldSize; y++) {
                     add(new FieldButton(x, y, controller), x, y);
 
-                    setMinHeight(size-1);
-                    setMaxHeight(size+1);
-
-                    setMinWidth(size-1);
-                    setMaxWidth(size+1);
+                    setMinHeight(size);
+                    setMinWidth(size);
                 }
             }
+            setPrefSize(size, size);
         }
-
     }
 
     public GameFrame(int fieldSize, GameController pController) {
@@ -40,12 +40,6 @@ public class GameFrame extends BorderPane implements View {
         init(fieldSize);
 
         setCenter(new ButtonGrid(fieldSize, this.controller));
-    }
-
-    public GameFrame(int fieldSize) {
-        init(fieldSize);
-        setCenter(new ButtonGrid(fieldSize, this.controller));
-
     }
 
     @Override
@@ -72,8 +66,8 @@ public class GameFrame extends BorderPane implements View {
     public void showTie() {
         Dialog tie = new Dialog();
         tie.setContentText("No one won!");
+        tie.getDialogPane().getButtonTypes().add(new ButtonType("Close", ButtonBar.ButtonData.OK_DONE));
         tie.showAndWait();
-        tie.setOnCloseRequest(event -> tie.close());
     }
 
 
@@ -108,7 +102,8 @@ public class GameFrame extends BorderPane implements View {
         Button restart = new Button("Restart");
 
         restart.setOnAction(event -> {
-            Main.primaryStage.setScene(new Scene(new GameFrame(fieldSize), this.getWidth(), this.getHeight()));
+            controller.restart();
+            Main.primaryStage.setScene(new Scene(new GameFrame(fieldSize, controller), this.getWidth(), this.getHeight()));
         });
 
         Button endGame = new Button("End Game");
@@ -120,9 +115,5 @@ public class GameFrame extends BorderPane implements View {
         buttonBar.getButtons().addAll(scoreBoardButton, menu, restart, endGame);
 
         setTop(buttonBar);
-    }
-
-    public void setController(GameController controller) {
-        this.controller = controller;
     }
 }

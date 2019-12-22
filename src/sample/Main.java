@@ -9,7 +9,6 @@ import sample.view.frames.MenuFrame;
 
 public class Main extends Application {
     public static Stage primaryStage;
-    public static final int SIZE_MULTIPLIER = 100;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
