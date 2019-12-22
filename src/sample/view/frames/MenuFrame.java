@@ -33,12 +33,13 @@ public class MenuFrame extends VBox {
 
         });
 
-        scoreBoard.setOnAction(event -> showScoreBoard(pGameController.getScoreboard()));
+        scoreBoard.setOnAction(event -> showScoreBoard(pGameController));
 
         getChildren().addAll(size, startButton, scoreBoard);
     }
 
-    public void showScoreBoard(ArrayList<String> board) {
+    public void showScoreBoard(GameController controller) {
+        ArrayList<String> board = controller.getScoreboard();
         String tBoard = "Name\n";
         Dialog scoreBoard = new Dialog();
         for (int i = 0; i < board.size(); i++) {

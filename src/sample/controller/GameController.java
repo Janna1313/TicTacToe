@@ -51,7 +51,7 @@ public class GameController implements Controller {
 
     @Override
     public void showScoreboard() {
-        view.showScoreBoard(this.scoreboard);
+        view.showScoreBoard();
     }
 
     public ArrayList<String> getScoreboard() {

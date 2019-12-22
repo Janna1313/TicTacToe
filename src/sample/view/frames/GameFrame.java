@@ -49,7 +49,7 @@ public class GameFrame extends BorderPane implements View {
         Dialog winner = new Dialog();
 
         player.setContentText("What's your name?");
-        
+
         Optional<String> result = player.showAndWait();
 
         if (result.isPresent() && result.get().length() > 0) {
@@ -72,7 +72,8 @@ public class GameFrame extends BorderPane implements View {
 
 
     @Override
-    public void showScoreBoard(ArrayList<String> board) {
+    public void showScoreBoard() {
+        ArrayList<String> board = controller.getScoreboard();
         String tBoard = "Name\n";
         Dialog scoreBoard = new Dialog();
         for (int i = 0; i < board.size(); i++) {

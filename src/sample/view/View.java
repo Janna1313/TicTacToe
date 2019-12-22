@@ -5,6 +5,6 @@ import java.util.ArrayList;
 public interface View {
     String showWinner();
     void showTie();
-    void showScoreBoard(ArrayList<String> board);
+    void showScoreBoard();
     void init(int fieldSize);
 }
