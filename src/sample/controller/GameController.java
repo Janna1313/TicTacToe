@@ -10,6 +10,11 @@ public class GameController implements Controller {
     private int active_player;
     private Model model;
     private GameFrame view;
+    private ArrayList<String> scoreboard;
+
+    public GameController(){
+        scoreboard = Model.getScoreBord();
+    }
 
     @Override
     public int checkMove(int x, int y) {
@@ -17,7 +22,7 @@ public class GameController implements Controller {
         if (win == null) {
             view.showTie();
         } else if (win) {
-            view.showWinner(active_player);
+            saveWin(view.showWinner());
         }
         switchPlayer();
         return active_player;
@@ -45,20 +50,15 @@ public class GameController implements Controller {
 
     @Override
     public void showScoreboard() {
-        ArrayList<String> scoreboard = Model.getScoreBord();
-        view.showScoreBoard(scoreboard);
+        view.showScoreBoard(this.scoreboard);
+    }
+
+    public ArrayList<String> getScoreboard() {
+        return this.scoreboard;
     }
 
     public int getActive_player() {
         return active_player;
-    }
-
-    public GameFrame getView() {
-        return view;
-    }
-
-    public Model getModel() {
-        return model;
     }
 
     public void setView(GameFrame view) {

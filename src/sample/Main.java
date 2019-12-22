@@ -21,7 +21,6 @@ public class Main extends Application {
         Parent menuView = new MenuFrame(new GameController());
 
         Main.primaryStage.setScene(new Scene(menuView, 500, 500));
-        //primaryStage.setScene(new Scene(gameView, 500, 500));
         primaryStage.show();
     }
 

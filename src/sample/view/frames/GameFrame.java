@@ -4,6 +4,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.Dialog;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import sample.Main;
@@ -26,7 +27,7 @@ public class GameFrame extends BorderPane implements View {
 
     }
 
-    public GameFrame(int fieldSize, GameController pController){
+    public GameFrame(int fieldSize, GameController pController) {
         controller = pController;
         controller.setView(this);
         controller.setActive_player(1);
@@ -43,19 +44,33 @@ public class GameFrame extends BorderPane implements View {
     }
 
     @Override
-    public void showWinner(int who) {
-        Dialog winner = new Dialog();
-        winner.setContentText("Player " + who + " has won!");
-        winner.show();
+    public String showWinner() {
+        TextInputDialog player = new TextInputDialog();
+        player.setContentText("What's your name?");
+        player.showAndWait();
 
+        player.getEditor().setOnAction(event -> {
+            Dialog winner = new Dialog();
+            winner.setContentText("Player " + player.getEditor().getText() + " has won!");
+            winner.showAndWait();
+
+            winner.setOnCloseRequest(event1 -> {
+                winner.close();
+                player.close();
+            });
+        });
+
+        return player.getEditor().getText();
     }
 
     @Override
     public void showTie() {
         Dialog tie = new Dialog();
         tie.setContentText("No one won!");
-        tie.show();
+        tie.showAndWait();
+        tie.setOnCloseRequest(event -> tie.close());
     }
+
 
     @Override
     public void showScoreBoard(ArrayList<String> board) {
@@ -65,12 +80,12 @@ public class GameFrame extends BorderPane implements View {
             tBoard += board.get(i) + "\n";
         }
 
+        scoreBoard.setContentText(tBoard);
+        scoreBoard.showAndWait();
+
         scoreBoard.setOnCloseRequest(event -> {
             scoreBoard.close();
         });
-
-        scoreBoard.setContentText(tBoard);
-        scoreBoard.show();
     }
 
     @Override
